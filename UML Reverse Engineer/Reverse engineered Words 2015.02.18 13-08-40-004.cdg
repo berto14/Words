@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Reverse engineered Words 2015.02.18 13-08-40-004">
+  <ClassDiagramComponents>
+    <Class xPosition="20.0" yPosition="20.0" package="words" name="Checking" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="text" visibility="package" type="String"/>
+        <Field name="tokens" visibility="package" type="StringTokenizer"/>
+        <Field name="db" visibility="private" type="DataBase" isStatic="true"/>
+      </Fields>
+      <Methods>
+        <Method name="sentence" visibility="public" returnType="void"/>
+      </Methods>
+    </Class>
+    <Class xPosition="320.0" yPosition="20.0" package="words" name="Conexion" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="conn" visibility="private" type="Connection"/>
+        <Field name="word" visibility="package" type="String"/>
+        <Field name="noun" visibility="package" type="String"/>
+        <Field name="verb" visibility="package" type="String"/>
+        <Field name="adj" visibility="package" type="String"/>
+        <Field name="adv" visibility="package" type="String"/>
+      </Fields>
+      <Methods>
+        <Method name="CrearBD" visibility="public" returnType="Connection"/>
+        <Method name="AccederBD" visibility="public" returnType="Connection"/>
+        <Method name="printTable" visibility="public" returnType="void"/>
+        <Method name="setWord" visibility="public" returnType="void">
+          <Argument type="String" name="word"/>
+        </Method>
+        <Method name="setNoun" visibility="public" returnType="void">
+          <Argument type="String" name="noun"/>
+        </Method>
+        <Method name="setVerb" visibility="public" returnType="void">
+          <Argument type="String" name="verb"/>
+        </Method>
+        <Method name="setAdj" visibility="public" returnType="void">
+          <Argument type="String" name="adj"/>
+        </Method>
+        <Method name="setAdv" visibility="public" returnType="void">
+          <Argument type="String" name="adv"/>
+        </Method>
+        <Method name="insertWord" visibility="public" returnType="void"/>
+        <Method name="cerracon" visibility="public" returnType="void"/>
+      </Methods>
+    </Class>
+    <Class xPosition="620.0" yPosition="20.0" package="words" name="Converter" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="db" visibility="private" type="DataBase"/>
+        <Field name="information" visibility="package" type="File"/>
+        <Field name="fr" visibility="package" type="FileReader"/>
+        <Field name="br" visibility="package" type="BufferedReader"/>
+        <Field name="file" visibility="package" type="File"/>
+        <Field name="out" visibility="package" type="FileWriter"/>
+        <Field name="oneNoun" visibility="package" type="boolean"/>
+        <Field name="st" visibility="package" type="StringTokenizer"/>
+        <Field name="s2" visibility="package" type="String"/>
+        <Field name="j" visibility="package" type="int"/>
+        <Field name="b" visibility="package" type="boolean"/>
+        <Field name="s" visibility="package" type="String"/>
+        <Field name="k" visibility="package" type="int"/>
+      </Fields>
+      <Methods>
+        <Method name="noun" visibility="public" returnType="void">
+          <Argument type="String" name="line"/>
+          <Argument type="String" name="word"/>
+        </Method>
+        <Method name="verb" visibility="public" returnType="void">
+          <Argument type="String" name="line"/>
+          <Argument type="String" name="word"/>
+        </Method>
+        <Method name="adjective" visibility="public" returnType="void">
+          <Argument type="String" name="line"/>
+          <Argument type="String" name="word"/>
+        </Method>
+        <Method name="adverb" visibility="public" returnType="void">
+          <Argument type="String" name="line"/>
+          <Argument type="String" name="word"/>
+        </Method>
+        <Method name="readingFle" visibility="public" returnType="void"/>
+        <Method name="destroy" visibility="public" returnType="void"/>
+      </Methods>
+    </Class>
+    <Class xPosition="920.0" yPosition="20.0" package="words" name="DataBase" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="connection" visibility="private" type="Connection" isStatic="true"/>
+        <Field name="set" visibility="private" type="Statement" isStatic="true"/>
+        <Field name="rs" visibility="private" type="ResultSet" isStatic="true"/>
+        <Field name="rsmd" visibility="package" type="ResultSetMetaData"/>
+        <Field name="words" visibility="package" type="String[]"/>
+        <Field name="word" visibility="package" type="String"/>
+        <Field name="noun" visibility="package" type="String"/>
+        <Field name="verb" visibility="package" type="String"/>
+        <Field name="adj" visibility="package" type="String"/>
+        <Field name="adv" visibility="package" type="String"/>
+        <Field name="driver" visibility="private" type="Driver" isStatic="true"/>
+        <Field name="URLDerby" visibility="private" type="String" isStatic="true"/>
+        <Field name="user" visibility="private" type="String" isStatic="true"/>
+        <Field name="password" visibility="private" type="String" isStatic="true"/>
+      </Fields>
+      <Methods>
+        <Method name="getConnection" visibility="public" returnType="Connection" isStatic="true"/>
+        <Method name="setWord" visibility="public" returnType="void">
+          <Argument type="String" name="word"/>
+        </Method>
+        <Method name="setNoun" visibility="public" returnType="void">
+          <Argument type="String" name="noun"/>
+        </Method>
+        <Method name="setVerb" visibility="public" returnType="void">
+          <Argument type="String" name="verb"/>
+        </Method>
+        <Method name="setAdj" visibility="public" returnType="void">
+          <Argument type="String" name="adj"/>
+        </Method>
+        <Method name="setAdv" visibility="public" returnType="void">
+          <Argument type="String" name="adv"/>
+        </Method>
+        <Method name="insertWord" visibility="public" returnType="void"/>
+        <Method name="searching" visibility="public" returnType="void">
+          <Argument type="String" name="s"/>
+        </Method>
+        <Method name="deleteTable" visibility="public" returnType="void"/>
+        <Method name="closeConnection" visibility="public" returnType="void"/>
+      </Methods>
+    </Class>
+    <Class xPosition="20.0" yPosition="420.0" package="words" name="Main" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="conv" visibility="private" type="Converter" isStatic="true"/>
+        <Field name="db" visibility="private" type="DataBase" isStatic="true"/>
+        <Field name="check" visibility="private" type="Checking" isStatic="true"/>
+        <Field name="text" visibility="package" type="String" isStatic="true"/>
+        <Field name="tokens" visibility="package" type="StringTokenizer" isStatic="true"/>
+      </Fields>
+      <Methods>
+        <Method name="main" visibility="public" returnType="void" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="db" source="Checking" target="DataBase" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="conv" source="Main" target="Converter" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="db" source="Converter" target="DataBase" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="db" source="Main" target="DataBase" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="check" source="Main" target="Checking" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
